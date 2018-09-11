@@ -14,7 +14,9 @@ class HangmanView
     }
 
     public function showWrongCharacters($wrongChosenCharacter) {
-        
+        if(count($wrongChosenCharacter) > 0) {
+        echo 'Wrong characters chosen: ' . $wrongChosenCharacter[0] . '';
+        }
     }
 }
 
