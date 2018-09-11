@@ -17,9 +17,15 @@ class HangmanState {
 
         if ($this->isMatch($choosenCharacter)) {
             $this->correctCharacters[] = $choosenCharacter;
+            return $this->correctCharacters[0];
         } else {
             $this->wrongCharacters[] = $choosenCharacter;
+            return $this->wrongCharacters[0];
         }
+    }
+
+    public function getWrongCharacters() {
+        return $this->wrongCharacters;
     }
 
     /**

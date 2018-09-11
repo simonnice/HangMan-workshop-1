@@ -27,7 +27,6 @@ class WordGenerator
         $words = WordGenerator::wordList();
         $maxWordCount = count($words) - 1;
         $wordId = rand(0, $maxWordCount);
-
         return strtoupper($words[$wordId]);
     }
 }

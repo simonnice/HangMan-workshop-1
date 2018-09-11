@@ -7,7 +7,7 @@ class LayoutView
     One render function to render everything to
     ther client in the beginning
      */
-    public function render($buttons)
+    public function displayGameBoard($buttons)
     {
         echo '<!DOCTYPE html>
       <html>

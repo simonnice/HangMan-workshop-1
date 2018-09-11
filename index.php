@@ -16,7 +16,9 @@ ini_set('display_errors', 'On');
 //CREATE OBJECTS OF THE VIEWS
 $layoutView = new LayoutView();
 $buttons = new ButtonView();
+$hangManView = new HangManView();
 $state = new \model\HangManState(WordGenerator::generateWord());
-$gameController = new GameController($state, $buttons);
+$gameController = new GameController($state, $buttons, $hangManView);
 
-$layoutView->render($buttons);
+
+$layoutView->displayGameBoard($buttons);

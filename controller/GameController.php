@@ -4,7 +4,6 @@
 // TODO: Test if all characters has been found.
 // TODO: Count number of tries.
 
-require_once 'view/HangManView.php';
 
 class GameController
 {
@@ -15,12 +14,14 @@ class GameController
      *
      * @param string $word
      */
-    public function __construct(\model\HangmanState $state, $buttons)
+    public function __construct(\model\HangmanState $state, $buttons, $hangMan)
     {
         // The word should be saved between button clicks.
         $this->state = $state;
-        $this->view = $buttons;
+        $this->buttonView = $buttons;
+        $this->hangManView = $hangMan;
         $this->handleCharacterButtonClick();
+       
     }
 
     /**
@@ -30,10 +31,10 @@ class GameController
      */
     private function handleCharacterButtonClick()
     {
-        if ($this->view->userPlaysCharacter()) {
-            $this->state->playCharacter($this->view->getPlayedCharacter());            
-            
-            //$this->HangManView->show($this->state->playCharacter($this->view->getPlayedCharacter());
+        if ($this->buttonView->userPlaysCharacter() == true) {
+            $this->hangManView->showChosenCharacter($this->state->playCharacter($this->buttonView->getPlayedCharacter()));  
         }
+
+        $this->hangManView->showWrongCharacters($this->state->getWrongCharacters());
     }
 }
